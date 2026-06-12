@@ -1,65 +1,87 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="space-y-16">
+      {/* Hero */}
+      <section className="text-center py-16">
+        <h1 className="text-4xl font-bold text-brand-900 mb-4">
+          Pet Supplies Data Intelligence
+        </h1>
+        <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+          Cross-platform trend signals for Amazon Pet Supplies sellers. Spot
+          what&apos;s trending before it peaks — using Google Trends, Reddit
+          signals, and marketplace data.
+        </p>
+        <div className="flex gap-4 justify-center">
+          <Link
+            href="/tools/trend-scanner"
+            className="px-6 py-3 bg-brand-500 text-white rounded-lg font-medium hover:bg-brand-700"
+          >
+            Try Trend Scanner →
+          </Link>
+          <Link
+            href="/blog"
+            className="px-6 py-3 border border-gray-300 rounded-lg font-medium hover:border-brand-500 text-gray-700"
+          >
+            Read Research
+          </Link>
+        </div>
+      </section>
+
+      {/* Three value props */}
+      <section className="grid md:grid-cols-3 gap-8">
+        {[
+          {
+            title: "Trend Signals",
+            desc: "Google Trends + Reddit + BSR data combined into a single TrendScore.",
+            icon: "📊",
+          },
+          {
+            title: "Pet-First Research",
+            desc: "Deep analysis of pet sub-niches: dog food, cat litter, pet tech, and more.",
+            icon: "🐾",
+          },
+          {
+            title: "Free Tools",
+            desc: "Chrome extension overlays trend data on Amazon product pages. Web tools for deep dives.",
+            icon: "🛠️",
+          },
+        ].map((item) => (
+          <div
+            key={item.title}
+            className="p-6 border border-gray-200 rounded-xl"
+          >
+            <div className="text-3xl mb-3">{item.icon}</div>
+            <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
+            <p className="text-gray-500 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Latest */}
+      <section>
+        <h2 className="text-2xl font-bold mb-6">Latest Research</h2>
+        <div className="border border-gray-200 rounded-xl p-6">
+          <span className="text-xs text-brand-500 font-medium">
+            June 2026 · Deep Dive
+          </span>
+          <h3 className="text-xl font-semibold mt-1 mb-2">
+            Pet Supplies Market Landscape: Where the Growth Is
+          </h3>
+          <p className="text-gray-500 mb-4">
+            We analyzed 20+ pet sub-categories across search trends, BSR
+            momentum, and Reddit discussion volume. Here are the 5
+            highest-signal opportunities.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/blog/pet-supplies-landscape"
+            className="text-brand-500 font-medium hover:underline"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Read full report →
+          </Link>
         </div>
-      </main>
+      </section>
     </div>
   );
 }
