@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import PetSuppliesLandscape from "@/content/blog/pet-supplies-landscape.mdx";
+import PetSuppliesLandscape from "@/content/blog/pet-supplies-landscape";
 
 const posts: Record<
   string,

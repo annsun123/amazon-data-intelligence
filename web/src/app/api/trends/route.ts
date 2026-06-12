@@ -33,6 +33,8 @@ const SAMPLE_SCORES = [
   },
 ];
 
+export const dynamic = "force-static";
+
 export async function GET(request: NextRequest) {
   const keyword = request.nextUrl.searchParams.get("keyword");
 
